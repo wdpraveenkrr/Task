@@ -1,0 +1,109 @@
+* Here it is, I am using Next js Page router, for that purpose using client server component - "Use Client"
+
+Delete Nested Array of Object using Axios in react / Nextjs - without backend server 
+----------------------------------------------------------------------------------------
+'use client'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+
+export default function Excel() {
+
+    const[records,setRecords]=useState([])
+    const[info, setInfo]=useState([])
+
+    async function getUsers() {
+       
+    }
+
+useEffect(()=>{
+   axios.get('https://69087cd72d902d0651b086e6.mockapi.io/users/4')
+   .then((response)=>{
+    setRecords(response.data)
+   })     
+},[])
+
+const handleDeleteItems = async(postId,deleteId)=>{
+  
+    const res = await axios.get(`https://69087cd72d902d0651b086e6.mockapi.io/users/${postId}`)
+    const updatedPost ={
+        ...res.data, 
+        excelFileData:res.data.excelFileData.filter(c=>c.id !== deleteId)
+    }
+    await axios.put(`https://69087cd72d902d0651b086e6.mockapi.io/users/${postId}`,updatedPost)
+    console.log(records);    
+ }
+     
+console.log("Records", records)
+
+  return (
+    <div>
+      <h2>Excel Data</h2>
+      <button onClick={()=>handleDeleteItems("4",9)} >Get Data</button>
+    </div>
+  )
+}
+
+
+----------------------------------------------------------------------------
+Nested Data - Model : To delete the excelFileData's particular id
+{
+  "id": "4",
+  "firstName": "Hardik",
+  "lastName": "Pandiya",
+  "email": "hardikpandiya@gmail.com",
+  "validEmail": true,
+  "emailDescription": "",
+  "phoneno": "",
+  "jobSearch": "Not looking for job right now",
+
+  "excelFileData": [
+    {
+      "id": 1,
+      "name": "bala test1",
+      "email": "bala573@gamil.com",
+      "amount": 1
+    },
+    {
+      "id": 2,
+      "name": "a a",
+      "email": "salak502s50@yt.com",
+      "amount": 22
+    },
+    {
+      "id": 3,
+      "name": "piccosoft softwares",
+      "email": "piccosoft@gmail.com",
+      "amount": 2844
+    },
+    {
+      "id": 4,
+      "name": "Bala murugan",
+      "email": "bala@demo.com",
+      "amount": 175
+    },
+    {
+      "id": 5,
+      "name": "dsfdsfds ",
+      "email": "dfdsfdsfdsfds@ds.ccdf",
+      "amount": 100
+    },
+    {
+      "id": 6,
+      "name": "piccoTest 2",
+      "email": "piccoTest@gmail.com",
+      "amount": 2347
+    },
+    {
+      "id": 7,
+      "name": "picco1 picco1",
+      "email": "picco1@gmail.com",
+      "amount": 580
+    },
+    {
+      "id": 8,
+      "name": "Antony Marshall",
+      "email": "tvmpicco72@gmail.com",
+      "amount": 7455
+    }
+  ],
+
