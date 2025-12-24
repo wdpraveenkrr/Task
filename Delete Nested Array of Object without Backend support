@@ -106,4 +106,135 @@ Nested Data - Model : To delete the excelFileData's particular id
       "amount": 7455
     }
   ],
+--------------------------------
+
+import Image from 'next/image';
+import { LuTicket } from "react-icons/lu";
+import React from 'react'
+import { BiBookmarkMinus } from "react-icons/bi";
+import { CiCalendarDate } from "react-icons/ci";
+import { IoLocationOutline } from "react-icons/io5";
+import { FaAngleDown } from "react-icons/fa";
+import { IoLanguage } from "react-icons/io5";
+import { FaAngleRight } from "react-icons/fa";
+import { LuTimer } from "react-icons/lu";
+import FAQ from '@/app/components/FAQ';
+import TermsAndConditions from '@/app/components/TermAndConditions';
+
+const page = async ({ params }) => {
+  const { slug } = await params;
+  return (
+    <>
+      <div className='text-black min-w-2xl  mx-auto w-10/12 flex pt-5'>
+
+        <div className='p-5 w-8/12'>
+          <div className='w-full h-130 '>
+
+            <Image quality={90} objectFit='fit' src={'/hiphopconcert.jpg'} width={200} height={100} className='rounded-xl w-full ' alt='hiphopconcert' />
+
+
+          </div>
+        </div>
+        <div className='w-4/12 p-5 rounded-2xl h-100 border-gray-400 border pb-0 flex flex-col m-5'>
+          <h1 className='text-2xl font-bold p-5 '>Hip Hop Tamizha Aadhi's ROTDM - The Home Coming Finale | Chennai</h1>
+          <div className='space-y-3'>
+            <p className='font-semibold text-gray-600 flex'> <BiBookmarkMinus className='text-2xl mr-2 ml-4' /> Music, Concerts</p>
+            <p className='font-semibold text-gray-600 flex'> <CiCalendarDate className='text-2xl text-black  mr-2 ml-4' /> Sat, 7 Mar, 6:30 PM</p>
+            <p className='font-semibold text-gray-600 flex'> <IoLocationOutline className='text-2xl mr-2 ml-4' /> YMCA Ground, Nandanam, Chennai</p>
+          </div>
+          <div className='flex border-t-2 mt-5 border-gray-400 p-5 justify-between items-center'>
+            <p className='font-semibold w-22 text-gray-700'>Starts from <b className='text-xl text-black'> $ 999 </b> </p>
+            <button className='bg-black text-white font-bold px-4 py-2 text-lg rounded-xl'>BOOK TICKETS</button>
+          </div>
+        </div>
+      </div>
+
+      <div className='w-10/12 flex flex-col mx-auto p-5'>
+
+        {/* About the Event */}
+        <div className='text-black w-8/12 p-3'>
+          <h1 className='text-2xl font-bold mb-3'>About the Event</h1>
+          <div>
+            <p className='text-lg'>HipHop Tamizha’s Return of the Dragon Machi World Tour is finally coming home. 🐉🔥After 1.5 years of non-stop shows across the globe, electrifying stages and roaring crowds from Malaysia to the US, this iconic tour is set to end where it all began – Chennai. This isn’t just another concert, it’s the grand finale of the Return of the Dragon Machi era, Get ready for a power-packed night of hits, nostalgia, new-age anthems, and insane live energy, as Aadhi and the crew bring their final world tour performance to their hometown.</p>
+            <button className='flex items-center'>show more <FaAngleDown /> </button>
+          </div>
+        </div>
+        {/* Event Guide */}
+        <div className='text-black w-8/12 p-3 mt-5'>
+          <div className='flex justify-between'>
+            <h1 className='text-xl font-bold mb-3'>Event Guide</h1>
+            <button className='font-semibold flex items-center'>See all <FaAngleRight className='text-xl m-2' />  </button>
+          </div>
+          <div className='h-20 flex w-4/5 justify-between gap-5 text-sm'>
+
+            <div className="p-2 flex items-center justify-center">
+              <p className="bg-gray-200 p-3 rounded-2xl m-2"><IoLanguage className='text-2xl text-gray-500' /></p>
+              <div className='flex flex-col justify-center ml-2'>
+                <p className=" font-semibold  text-gray-500 ">Language</p>
+                <p className=" font-semibold ">Tamil</p>
+              </div>
+            </div>
+
+            <div className="p-2 flex items-center justify-center">
+              <p className="bg-gray-200 p-3 rounded-2xl m-2"><LuTimer className='text-2xl text-gray-500' /></p>
+              <div className='flex flex-col justify-center ml-2'>
+                <p className=" font-semibold  text-gray-500 ">Duration</p>
+                <p className=" font-semibold ">3 Hours</p>
+              </div>
+            </div>
+
+
+            <div className="p-2 flex items-center justify-center">
+              <p className="bg-gray-200 p-3 rounded-2xl m-2"><LuTicket className='text-2xl text-gray-500' /></p>
+              <div className='flex flex-col justify-center ml-2'>
+                <p className=" font-semibold  text-gray-500 ">Ticets Needed for</p>
+                <p className=" font-semibold ">5 yrs & above</p>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+        {/* Artist */}
+        <div className='text-black mt-10 w-8/12 p-3'>
+          <h1 className='text-2xl font-bold mb-5'>Artist</h1>
+          <div className='flex '>
+            <Image src={"/hiphopadhi.jpg"} width={150} height={200} className='rounded-lg' alt='artist_pic' />
+            <p className='text-lg font-semibold m-5 items-center justify-center flex'>Hiphop Tamizha Adhi</p>
+          </div>
+        </div>
+
+        {/* Venue */}
+        <div className='text-black mt-5 w-8/12 p-3'>
+          <h1 className='text-2xl font-bold mb-5'>Venue</h1>
+          <div className='flex justify-between mt-8 '>
+            <div className='flex flex-col space-y-2'>
+              <p className='text-lg font-bold'>YMCA Ground, Nandanam</p>
+              <p className='w-9/12 text-md font-semibold text-gray-600'>26HR+324, Y.M.C.A College of Physical Education, Nandanam, Chennai, Tamil Nadu 600035, India</p>
+            </div>
+            <button className='border p-2 w-50 text-md border-gray-200 m-2 flex items-center font-semibold' ><IoLocationOutline className='text-xl' />GET DIRECTIONS</button>
+          </div>
+        </div>
+
+        {/* Feedback Session */}
+
+       <FAQ/>
+
+       <TermsAndConditions/>
+
+
+
+
+
+
+
+      </div>
+    </>
+  )
+}
+
+export default page
+
 
